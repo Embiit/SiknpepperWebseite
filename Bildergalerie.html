@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silk'n Pepper - Bildergalerie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d61515;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+
+        }
+
+        header img {
+            max-width: 140px;
+        }
+        
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+            
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+            padding: 5px;
+            margin-bottom: 10px;
+            display: inline-block; 
+          
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #fff;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+
+        footer a:hover {
+            background-color: #555;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .insta {
+            position: relative;
+        }
+
+        .insta a {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .insta img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .hover-text {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .insta a:hover .hover-text {
+            display: block;
+        }
+
+        footer .insta {
+            margin-left: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Styling für das Bild im Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            margin: 20px auto;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+           
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Bilder\Logo2.gif" alt="Logo">
+        
+    </header>
+
+    <nav>
+        <a href="index.html">Über uns</a>
+        <a href="HöreRein.html">Höre rein</a>
+        <a href="Rezensionen.html">Rezensionen</a>
+        <a style= "font-weight: bold; "href="Bildergalerie.html">Bildergalerie</a>
+        <a href="Kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Bildergalerie</h2>
+        </section>
+        <div class="gallery">
+            <img src="Bilder\Galerie1.jpg" alt="Bild 1" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie2.jpg" alt="Bild 2" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie3.png" alt="Bild 3" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie4.jpg" alt="Bild 4" onclick="openModal(this.src)">
+            <img src="Bilder/Galerie5.jpg" alt="Bild 5" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie6.jpg" alt="Bild 6" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie7.jpg" alt="Bild 7" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie8.jpg" alt="Bild 8" onclick="openModal(this.src)">
+            <img src="Bilder/Galerie9.jpg" alt="Bild 9" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie10.jpg" alt="Bild 10" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie11.jpg" alt="Bild 11" onclick="openModal(this.src)">
+            <img src="Bilder\Galerie12.jpg" alt="Bild 12" onclick="openModal(this.src)">
+        </div>
+
+        <!-- Das Modal -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+                <img id="modalImg" src="">
+                <span class="next" onclick="changeImage(1)">&#10095;</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <script>
+        var currentImageIndex = 0;
+        var images = document.getElementsByClassName('gallery')[0].getElementsByTagName('img');
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById('modalImg');
+
+        function openModal(src) {
+            if (window.innerWidth > 768) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+
+            modal.style.display = "block";
+            modalImg.src = src;
+                for (var i = 0; i < images.length; i++) {
+                        if (images[i].src === src) {
+                            currentImageIndex = i;
+                            break;
+                        }
+                }
+            }
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+        
+
+        function changeImage(offset) {
+            // Index des nächsten Bildes berechnen
+            currentImageIndex += offset;
+
+            // Überprüfen, ob der Index innerhalb des gültigen Bereichs liegt
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+
+            // Bild im Modal aktualisieren
+            modalImg.src = images[currentImageIndex].src;
+        }
+    </script>
+    <footer>
+        <a href="Impressum.html">Impressum</a>
+        <a href="Datenschutzerklärung.html">Datenschutzerklärung</a>
+        <div class="insta">
+            <a href="https://www.instagram.com/silkn_pepper/?igsh=MWFoNm11bHVrNnh4eg%3D%3D" target="_blank">
+                <img src="Bilder/Instagram_icon.png" alt="Instagram Link">
+                <span class="hover-text">Öffne Instagram</span>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
